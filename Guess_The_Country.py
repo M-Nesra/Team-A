@@ -58,3 +58,13 @@ def mock_unique_score(name):
     Mock function to simulate scoring based on uniqueness.
     """
     return 5 
+
+if __name__ == "__main__":
+    print("Choose a category:")
+    print("1. Random Countries")
+    print("2. African Countries")
+    print("3. Countries with Red Flags")
+    print("4. 5-Letter Countries")
+
+    user_input = input("\nEnter the number of your choice: ")
+    selected = pick_country(user_input)
