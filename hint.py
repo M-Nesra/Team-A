@@ -20,9 +20,6 @@ def get_hint(country: str):
 
     choice = input("Enter 1, 2, or 3: ").strip()
 
-    if not country or not country.strip():
-        return "Hint: No valid country name provided."
-
     country_name = country.strip()
 
     if choice == "1":
