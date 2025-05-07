@@ -188,13 +188,12 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
                 listed)
         """
         
-    score = 100
+        score = 100
     # dictionary for mapping referenced string values to point related actions
-    score_changes = {
-        “hint”: -15
-        “wrong_guess”: -10
-        “bonus” = 5 * “correct_guesses” 
-    }
+        score_changes = {
+             “hint”: -15
+                “wrong_guess”: -10
+                “bonus” = 5 * “correct_guesses” }
 
     # type guesses are any of the list forms of guessing listed
     if type_guess in score_changes:
