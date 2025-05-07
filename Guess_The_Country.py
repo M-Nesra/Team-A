@@ -101,7 +101,7 @@ def get_hint(country: str):
         return "Invalid choice. No hint used, but the point deduction still applies."
     
 #Hans
-def guess_checker(guess, country, guessed_letters, wrong_guesses, score): 
+def player_guess(guess, country, guessed_letters, wrong_guesses, score): 
     """
     this function simply validates the player's guess while updating the wrong_guesses and score
 
