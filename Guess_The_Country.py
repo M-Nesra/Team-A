@@ -1,3 +1,13 @@
+def display_word_state(country,guessed_letters):
+    display = ''
+    for letter in country:
+        if letter.lower() in guessed_letters:
+            display += letter + ' '
+        elif letter == ' ':
+            display += '  ' #add two spaces for multi word countries.
+        else:
+            display += '_ '
+    return display.strip()
 
 def pick_country(choice):
     """
@@ -52,6 +62,99 @@ def pick_country(choice):
     selected = filtered[0]
     return selected
 
+import random
+
+def get_hint(country: str):
+    """
+    Prompts the user to choose a hint type, then returns either:
+        First letter
+        Last letter
+        A random letter in the middle (not first or last)
+
+    Parameters:
+        country (str): The country name
+
+    Returns:
+        str: The hint
+    """
+    print("\nWhich hint would you like to use?")
+    print("1. First Letter")
+    print("2. Last Letter")
+    print("3. Random Letter in Between (not first or last)")
+
+    choice = input("Enter 1, 2, or 3: ").strip()
+
+    country_name = country.strip()
+
+    if choice == "1":
+        return f"Hint: The first letter of the country is '{country_name[0].upper()}'."
+    elif choice == "2":
+        return f"Hint: The last letter of the country is '{country_name[-1].upper()}'."
+    elif choice == "3":
+        if len(country_name) <= 2:
+            return "Hint: The country name is too short for a middle letter hint."
+        middle_indices = list(range(1, len(country_name) - 1))
+        random_index = random.choice(middle_indices)
+        letter = country_name[random_index]
+        return f"Hint: The {random_index + 1}ᵗʰ letter of the country is '{letter.upper()}'."
+    else:
+        return "Invalid choice. No hint used, but the point deduction still applies."
+    
+#Hans
+def player_guess(guess, country, guessed_letters, wrong_guesses, score): 
+    """
+    this function simply validates the player's guess while updating the wrong_guesses and score
+
+
+    Attributes:
+        guess (str): The player's input-ed letter
+        country (str): The correct country's name
+        guessed_letters (set): Set of previously guessed letters
+        wrong_guesses (int): Count of wrong guesses
+        score (int): Current score.
+
+    Returns:
+        tuple: updates guessed_letters, wrong_guesses, score, 
+    """
+    
+    """
+
+    CREATE A mock function 
+
+    """
+
+    guess = guess.strip().lower()
+    country_lower = country.lower()
+
+    # .isalpha helps identify whether the input is a valid letter or attainst the same length as the country
+    if not guess.isalpha() or len(guess) != 1:
+        print("Invalid input. Please guess a single letter.")
+        return guessed_letters, wrong_guesses, score
+   
+   
+    # Correct guess
+    if guess in country_lower:
+        guessed_letters.add(guess)
+        mock_display_word_state(country, guessed_letters)
+        print(f"{guess.upper()}' is correct!")
+    else:
+        # Incorrect guess
+        wrong_guesses += 1
+        score = adjust_score(score, "wrong_guess")
+        print(f"{guess.upper()}' is incorrect. -10 points. Score: {score}")
+
+    # Loss by incorrect guesses
+    if wrong_guesses >= 6:
+        print(f"Game Over. The correct country was: {country}")
+        return guessed_letters, wrong_guesses, score
+ 
+    if score <= 0:
+        print(f"You’ve run out of points. The country was: {country}")
+        return guessed_letters, wrong_guesses, score
+
+    return guessed_letters, wrong_guesses, score
+
+
 # Counts unique letters in a name
 def mock_unique_score(name):
     """
@@ -68,3 +171,39 @@ if __name__ == "__main__":
 
     user_input = input("\nEnter the number of your choice: ")
     selected = pick_country(user_input)
+
+# Woordle: Scoring System
+
+def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
+        """ This function updates the player's score based on their action.
+            Parameters:
+                Score (int): the current score of the player.
+                Type_guess (str): the type of action for exp: “hint”, “wrong_guess”,
+                “bonus”
+                Correct_geusses (int) : the amount of correct guesses made, used for 
+                bonus
+
+            Returns:
+                The updated score of the player (dependencies, values of parameters 
+                listed)
+        """
+        
+        score = 100
+    # dictionary for mapping referenced string values to point related actions
+        score_changes = {
+             “hint”: -15
+                “wrong_guess”: -10
+                “bonus” = 5 * “correct_guesses” }
+
+    # type guesses are any of the list forms of guessing listed
+    if type_guess in score_changes:
+        if type_guess == "bonus":
+            score += score_changes[type_guess]  
+            # bonus is already calculated using correct_guesses
+        else if:
+            score += score_changes[type_guess]
+        else:
+            print(f"Action isn’t related to the game.")
+	
+	# leader_board.txt.append(score)  → will add when i create this text file
+	    return max(score, 0)
