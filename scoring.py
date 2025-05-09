@@ -1,36 +1,82 @@
 # Woordle: Scoring System
 
+def initialize_score():
+    """Initialize the player's score for the start of the Game @ 100"""
+    return 100
+
 def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
-	“”” This function updates the player's score based on their action.
-		Parameters:
-            Score (int): the current score of the player.
-            Type_guess (str): the type of action for exp: “hint”, “wrong_guess”,
-            “bonus”
-            Correct_geusses (int) : the amount of correct guesses made, used for 
-            bonus
+    """This function updates the player's score based on their action.
+		
+        Parameters:
+            --> score (int): the current score of the player.
+            --> type_guess (str): the type of action - “hint”, “wrong_guess”,
+            or “bonus”)
+            --> correct_geusses (int) : the amount of correct guesses made, used 
+            for bonus
 
 	    Returns:
-            The updated score of the player (dependencies, values of parameters 
-            listed)
-    ”””
-    score = 100
-    # dictionary for mapping referenced string values to point related actions
+            int: This is the updated score of the player (dependencies, values 
+            provided in parameters)
+    """
+    
+    # Dictionary for mapping referenced string values score changes
     score_changes = {
         “hint”: -15
         “wrong_guess”: -10
-        “bonus” = 5 * “correct_guesses” 
+        # ??
+        "correct_guesses": 5 if attempts < 3 else 0  # bonus for guessing in <3 attempts
+        #“bonus” = 5 * “correct_guesses”    
     }
 
-    # type guesses are any of the list forms of guessing listed
-    if type_guess in score_changes:
-        if type_guess == "bonus":
-            score += score_changes[type_guess]  
-            # bonus is already calculated using correct_guesses
-        else:
-            score += score_changes[type_guess]
-        else:
-            print(f"Action isn’t related to the game.")
-	
-	# leader_board.txt.append(score)  → will add when i create this text file
-	return max(score, 0)
+    # Condtions that ensure game attempt boundaries:
+    if type_guess not in score_changes:
+        raise ValueError(f"Action {type_guess} is not viable in this game.")
+    
+    score += score_changes[type_guess]
+    
+    # Returns score, ensures it does not decrease below 0.
+    return max(score, 0)
+   
+    
+def update_leaderboard(player_name: str, final_score: int, str = "leader_board.txt"):
+    """Updates the leaderboard text file with the player's name and their score.
+    
+    Parameters:
+        player_name (str): the name of the player
+        final_score (int): the player's final score
+        filename (str): name of the leaderboard file
+    """
+    with open(filename, "a") as f:
+        f.write(f"{player_name}: {final_score}\n")
+    
+
+def display_leaderboard(filename: str = "leader_board.txt"):
+     """ Displays the current leaderboard from the text file designated.
+    
+    Parameters:
+        filename (str): name of the leaderboard file
+    """
+    
+ # Check for file presence
+    if not os.path.exists(filename):
+        print("No leaderboard records yet!")
+        return
+    
+    # Check if empty
+    if os.path.getsize(filename) == 0:
+        print("Leaderboard is empty!")
+        return
+    
+    # Reads file and display current scores
+    with open(filename, "r") as f:
+        scores = [line.strip() for line in f if line.strip()]
+        
+    # displays distint leaderboard header for better readability
+    print("\n--- LEADERBOARD ---")
+    # Show last 10 entries (or all if less than 10)
+    for score in scores[-10:]:  
+        print(score)
+    print("_____________________")
+
+
 
