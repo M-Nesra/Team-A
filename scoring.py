@@ -21,11 +21,9 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
     
     # Dictionary for mapping referenced string values score changes
     score_changes = {
-        “hint”: -15
-        “wrong_guess”: -10
-        # ??
-        "correct_guesses": 5 if attempts < 3 else 0  # bonus for guessing in <3 attempts
-        #“bonus” = 5 * “correct_guesses”    
+        “hint”: -15,
+        “wrong_guess”: -10,
+        "bonus": 5 if correct_guesses < 3 else 0
     }
 
     # Condtions that ensure game attempt boundaries:
@@ -38,7 +36,7 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
     return max(score, 0)
    
     
-def update_leaderboard(player_name: str, final_score: int, str = "leader_board.txt"):
+def update_leaderboard(player_name: str, final_score: int, filename: str = "leader_board.txt"):
     """Updates the leaderboard text file with the player's name and their score.
     
     Parameters:
