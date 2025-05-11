@@ -76,5 +76,3 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         print(score)
     print("_____________________")
 
-
-
