@@ -1,4 +1,5 @@
 # Woordle: Scoring System
+import os
 
 def initialize_score():
     """Initialize the player's score for the start of the Game @ 100"""
@@ -6,23 +7,23 @@ def initialize_score():
 
 def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
     """This function updates the player's score based on their action.
-		
+        
         Parameters:
             --> score (int): the current score of the player.
-            --> type_guess (str): the type of action - “hint”, “wrong_guess”,
-            or “bonus”)
+            --> type_guess (str): the type of action - "hint", "wrong_guess",
+            or "bonus")
             --> correct_geusses (int) : the amount of correct guesses made, used 
             for bonus
 
-	    Returns:
+        Returns:
             int: This is the updated score of the player (dependencies, values 
             provided in parameters)
     """
     
     # Dictionary for mapping referenced string values score changes
     score_changes = {
-        “hint”: -15,
-        “wrong_guess”: -10,
+        "hint": -15,
+        "wrong_guess": -10,
         "bonus": 5 if correct_guesses < 3 else 0
     }
 
@@ -49,13 +50,13 @@ def update_leaderboard(player_name: str, final_score: int, filename: str = "lead
     
 
 def display_leaderboard(filename: str = "leader_board.txt"):
-     """ Displays the current leaderboard from the text file designated.
+    """ Displays the current leaderboard from the text file designated.
     
     Parameters:
         filename (str): name of the leaderboard file
     """
     
- # Check for file presence
+    # Check for file presence
     if not os.path.exists(filename):
         print("No leaderboard records yet!")
         return
@@ -76,3 +77,20 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         print(score)
     print("_____________________")
 
+
+if __name__ == "__main__":
+    # Test initialization
+    score = initialize_score()
+    print(f"Initial score: {score}")
+
+    # Test hint deduction
+    score = adjust_score(score, "hint")
+    print(f"Score after hint: {score}")
+
+    # Test bonus with 2 correct guesses
+    score = adjust_score(score, "bonus", 2)
+    print(f"Score after bonus: {score}")
+
+    # Test leaderboard functions
+    update_leaderboard("TestPlayer", score)
+    display_leaderboard()
