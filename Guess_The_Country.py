@@ -1,13 +1,4 @@
-def display_word_state(country,guessed_letters):
-    display = ''
-    for letter in country:
-        if letter.lower() in guessed_letters:
-            display += letter + ' '
-        elif letter == ' ':
-            display += '  ' #add two spaces for multi word countries.
-        else:
-            display += '_ '
-    return display.strip()
+
 
 def pick_country(choice):
     """
