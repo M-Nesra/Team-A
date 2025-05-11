@@ -1,7 +1,12 @@
 import random
 
+
 def get_hint(country: str):
     """
+    Steven Zheng
+    
+    Techniques:
+        f-strings
     Prompts the user to choose a hint type, then returns either:
         First letter
         Last letter
@@ -28,10 +33,10 @@ def get_hint(country: str):
     elif choice == "2":
         return f"Hint: The last letter of the country is '{country_name[-1].upper()}'."
     elif choice == "3":
-        middle_indices = list(range(1, len(country_name) - 1))
-        random_index = random.choice(middle_indices)
+        middle = list(range(1, len(country_name) - 1))
+        random_index = random.choice(middle)
         letter = country_name[random_index]
-        return f"Hint: The {random_index + 1}ᵗʰ letter of the country is '{letter.upper()}'."
+        return f"Hint: The {random_index + 1}th letter of the country is '{letter.upper()}'."
     elif choice == "4":
         return letter_freq(country_name)
     elif choice == "5":
@@ -41,6 +46,11 @@ def get_hint(country: str):
 
 def letter_freq(country: str) -> str:
     """
+    Steven Zheng
+    
+    Techniques:
+        f-strings and key functions
+        
     Returns the most frequently used letter in the country name.
     """
     freq = {}
@@ -57,6 +67,10 @@ def letter_freq(country: str) -> str:
 
 def word_structure(country: str) -> str:
     """
+    Steven Zheng
+    
+    Techniques:
+        f-strings
     Returns the number of words in the country name and the length of each word.
     """
     words = country.strip().split()
