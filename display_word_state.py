@@ -1,3 +1,4 @@
+import re
 def display_word_state(country: str, guessed_letters: str) :
     """
     Displays the current state of the guessed word with underscores for unguessed letters.
@@ -22,3 +23,28 @@ def display_word_state(country: str, guessed_letters: str) :
 
     print(f"Current Word: {display.strip()}")
     return display.strip()
+
+
+def valid_country_format(country_name):
+    """
+    Validates the format of a country name using a regular expression.
+
+    A valid country name contains only letters and spaces (no digits, punctuation, etc.).
+
+    Args:
+        country_name: The user input country name to validate.
+
+    Returns:
+        True if the format is valid, False otherwise.
+    """
+    country_name = country_name.strip()
+    pattern = re.compile(r"^[A-Za-z ]+$")  # Only letters and spaces allowed
+
+    # Checks if the entire string matches the pattern
+    match = re.search(pattern, country_name)
+    
+    #Verifies that the match spans the full string
+    is_valid = match is not None and match.group() == country_name
+
+    print(f"Validation Result for '{country_name}': {'Valid' if is_valid else 'Invalid'}")
+    return is_valid
