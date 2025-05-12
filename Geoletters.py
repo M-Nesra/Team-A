@@ -405,9 +405,9 @@ def guess_checker(guess, state):
 
 def play_game():
     print("Welcome to Geoletters!")
-    print("Please enter your username")
-    username = input("\n Username: ")
-    print("Rules:")
+    username = input("Please enter your username:")
+    player_name = username.strip()
+    print("Rules: ")
 
 if __name__ == "__main__":
     play_game()
