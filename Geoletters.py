@@ -2,54 +2,6 @@ import os
 import random
 import re
 
-class GameState:
-    """
-    Represents the state of the guessing game for a single round.
-
-    Attributes:
-        country (str): The name of the country to be guessed.
-        guessed_letters (set): Set of correctly guessed letters.
-        wrong_guesses (int): Number of incorrect guesses.
-        score (int): Current player score.
-    """
-    def __init__(self, country, guessed_letters=None, wrong_guesses=0, score=100):
-        """
-        Initializes a GameState instance with the provided country and game state info.
-
-        Args:
-            country (str): The name of the country to guess.
-            guessed_letters (set): Letters guessed so far.
-            wrong_guesses (int): Count of incorrect guesses.
-            score (int): Starting score.
-        """
-        self.country = country
-        self.guessed_letters = guessed_letters or set()
-        self.wrong_guesses = wrong_guesses
-        self.score = score
-
-    def __contains__(self, letter):
-        """
-        Checks whether a letter is in the target country (case-insensitive).
-
-        Args:
-            letter (str): The letter to check.
-
-        Returns:
-            bool: True if letter is in the country name.
-        """
-        return letter in self.country.lower()
-
-    def __str__(self):
-        """
-        Returns the current state of the word with guessed letters revealed.
-
-        Returns:
-            str: Display string with correctly guessed letters shown.
-        """
-        return display_word_state(self.country, self.guessed_letters)
-
-
-# Scoring System:
 def initialize_score():
     """Initialize the player's score for the start of the Game @ 100"""
     return 100
@@ -130,9 +82,15 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         print(score)
     print("_____________________")
 
+import random
 
 def get_hint(country: str):
     """
+    Steven Zheng
+    
+    Techniques:
+        f-strings
+        
     Prompts the user to choose a hint type, then returns either:
         First letter
         Last letter
@@ -172,6 +130,11 @@ def get_hint(country: str):
 
 def letter_freq(country: str) -> str:
     """
+    Steven Zheng
+    
+    Techniques:
+        f-string
+        key function
     Returns the most frequently used letter in the country name.
     """
     freq = {}
@@ -188,6 +151,8 @@ def letter_freq(country: str) -> str:
 
 def word_structure(country: str) -> str:
     """
+    Steven Zheng
+    
     Returns the number of words in the country name and the length of each word.
     """
     words = country.strip().split()
@@ -209,14 +174,14 @@ def display_word_state(country: str, guessed_letters: str) :
     Returns:
         str: The current visible state of the word with guessed letters and underscores.
     """
-    guessed_set = set(guessed_letters.lower())  # Convert string to a set
+    guessed_set = {letter.lower() for letter in guessed_letters}
     display = ""
 
     for letter in country:
         if letter.lower() in guessed_set:
             display += letter.upper() + " "
         elif letter == " ":
-            display += "  "   # Preserve spaces in multi-word countries
+            display += "  " 
         else:
             display += "_ "
 
@@ -321,6 +286,52 @@ def pick_country(choice):
     save_used(selected)
     return selected
 
+class GameState:
+    """
+    Represents the state of the guessing game for a single round.
+
+    Attributes:
+        country (str): The name of the country to be guessed.
+        guessed_letters (set): Set of correctly guessed letters.
+        wrong_guesses (int): Number of incorrect guesses.
+        score (int): Current player score.
+    """
+    def __init__(self, country, guessed_letters=None, wrong_guesses=0, score=100):
+        """
+        Initializes a GameState instance with the provided country and game state info.
+
+        Args:
+            country (str): The name of the country to guess.
+            guessed_letters (set): Letters guessed so far.
+            wrong_guesses (int): Count of incorrect guesses.
+            score (int): Starting score.
+        """
+        self.country = country
+        self.guessed_letters = guessed_letters or set()
+        self.wrong_guesses = wrong_guesses
+        self.score = score
+
+    def __contains__(self, letter):
+        """
+        Checks whether a letter is in the target country (case-insensitive).
+
+        Args:
+            letter (str): The letter to check.
+
+        Returns:
+            bool: True if letter is in the country name.
+        """
+        return letter in self.country.lower()
+
+    def __str__(self):
+        """
+        Returns the current state of the word with guessed letters revealed.
+
+        Returns:
+            str: Display string with correctly guessed letters shown.
+        """
+        return display_word_state(self.country, self.guessed_letters)
+
 
 def validate_guess(guess, guessed_letters):
     """
@@ -405,9 +416,58 @@ def guess_checker(guess, state):
 
 def play_game():
     print("Welcome to Geoletters!")
+<<<<<<< Updated upstream
     username = input("Please enter your username:")
     player_name = username.strip()
     print("Rules: ")
+=======
+    print("---------------------------------------------------")
+    print("Please enter your username")
+    username = input("\n Username: ")
+    print("---------------------------------------------------")
+    print("Rules:")
+    print("1. Guess one letter at a time.")
+    print("2. You have a total of 6 wrong guesses.")
+    print("3. Each wrong guess costs 10 points.")
+    print("4. You start with 100 points.")
+    print("5. Type 'hint' if you're stuck (costs 15 points).")
+    print("6. Game ends when you guess the word, run out of points, or reach 6 wrong guesses.")
+    print("---------------------------------------------------")
+    
+    print("\n Choose a category:")
+    print("1. Random Countries")
+    print("2. African Countries")
+    print("3. Countries with Red Flags")
+    print("4. 5-Letter Countries")
+    category = input("\n Enter the number of your choice: ").strip()
+    selected_country = pick_country(category)
+    state = GameState(selected_country)
+    print("\n Game START!")
+    
+    while state.wrong_guesses < 6 and state.score > 0:
+        current_display = display_word_state(state.country, state.guessed_letters)
+>>>>>>> Stashed changes
 
+        if "_" not in current_display:
+            print(f"\n CONGRADULATIIONS! You guessed the country: {state.country}")
+            break
+
+        guess = input("\n Enter a letter or type 'hint': ").strip().lower()
+
+        if guess == "hint":
+            print(get_hint(state.country))
+            state.score = adjust_score(state.score, "hint")
+            print(f"Hint used. Current Score: {state.score}")
+            continue
+
+        state = guess_checker(guess, state)
+
+    if "_" in display_word_state(state.country, state.guessed_letters):
+        print(f"\n Game over. The country was: {state.country}")
+
+    
+    update_leaderboard(username, state.score)
+    display_leaderboard()
+    
 if __name__ == "__main__":
     play_game()
