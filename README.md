@@ -1,7 +1,8 @@
 # Team-A
 
 Context:
-    "Woordle: A Geography Word Challenge"
+    --> "Geoletter: A Geography Word Challenge"
+    
     Test your knowledge of world countries in this interactive Python guessing game!
 
 How to Play:
@@ -15,16 +16,14 @@ How to Play:
 
 Quick Start:
 
-bash
-git clone https://github.com/your-repo/Woordle.git
-cd Woordle
-python Woordle.py
+    bash
+    git clone https://github.com/your-repo/Geoletters.git
+    cd Geoletters
+    python Geoletters.py
 
 What Makes This Game Unique:
     --> Adaptive scoring system that rewards strategic play
-
     --> Multiple difficulty levels through category selection
-
     --> Persistent leaderboard to track top players
 
 For Other Developers:
@@ -36,11 +35,10 @@ For Other Developers:
 
         3. Country data is organized in separate text files
 
-Our team built this to practice:
+As we built this, we practiced:
 
-    Clean Python architecture
-
-    User input validation
+    --> Clean Python architecture
+    --> User input validation
 
 # Troubleshooting: 
 
@@ -51,6 +49,4 @@ Our team built this to practice:
 
 
 # Annotated Bibliography:
-
-    He wanted us to have sources
     
