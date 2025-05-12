@@ -20,8 +20,6 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
             --> int: This is the updated score of the player (dependencies, values
             provided in parameters)
     """
-    # Isata: Key functions are implemented here to return the score of no less
-    # than zero of a player.
     
     # Dictionary for mapping referenced string values score changes
     score_changes = {
@@ -72,7 +70,7 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         print("Leaderboard is empty!")
         return
 
-    # Reads the file and displays current scores:
+    # Isata: I utilized with statement to read the file and display current scores:
     with open(filename, "r") as f:
         scores = [line.strip() for line in f if line.strip()]
 
