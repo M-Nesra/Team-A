@@ -102,7 +102,7 @@ def get_hint(country: str):
     Returns:
         str: The hint
     """
-    print("\nWhich hint would you like to use?")
+    print("\n Which hint would you like to use?")
     print("1. First Letter")
     print("2. Last Letter")
     print("3. Random Letter in Between (not first or last)")
@@ -416,17 +416,13 @@ def guess_checker(guess, state):
 
 def play_game():
     print("Welcome to Geoletters!")
-<<<<<<< Updated upstream
-    username = input("Please enter your username:")
-    player_name = username.strip()
-    print("Rules: ")
-=======
     print("---------------------------------------------------")
     print("Please enter your username")
     username = input("\n Username: ")
+    player_name = username.strip()
     print("---------------------------------------------------")
     print("Rules:")
-    print("1. Guess one letter at a time.")
+    print("1. Guess one letter at a tiime.")
     print("2. You have a total of 6 wrong guesses.")
     print("3. Each wrong guess costs 10 points.")
     print("4. You start with 100 points.")
@@ -446,7 +442,6 @@ def play_game():
     
     while state.wrong_guesses < 6 and state.score > 0:
         current_display = display_word_state(state.country, state.guessed_letters)
->>>>>>> Stashed changes
 
         if "_" not in current_display:
             print(f"\n CONGRADULATIIONS! You guessed the country: {state.country}")
@@ -457,7 +452,7 @@ def play_game():
         if guess == "hint":
             print(get_hint(state.country))
             state.score = adjust_score(state.score, "hint")
-            print(f"Hint used. Current Score: {state.score}")
+            print(f"Hiint used. Current Score: {state.score}")
             continue
 
         state = guess_checker(guess, state)
@@ -466,7 +461,7 @@ def play_game():
         print(f"\n Game over. The country was: {state.country}")
 
     
-    update_leaderboard(username, state.score)
+    update_leaderboard(player_name, state.score)
     display_leaderboard()
     
 if __name__ == "__main__":
