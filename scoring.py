@@ -1,4 +1,5 @@
-# Woordle: Scoring System
+# Scoring System:
+
 import os
 
 def initialize_score():
@@ -16,10 +17,10 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
             for bonus
 
         Returns:
-            int: This is the updated score of the player (dependencies, values
+            --> int: This is the updated score of the player (dependencies, values
             provided in parameters)
     """
-
+    
     # Dictionary for mapping referenced string values score changes
     score_changes = {
         "hint": -15,
@@ -41,9 +42,9 @@ def update_leaderboard(player_name: str, final_score: int, filename: str = "lead
     """Updates the leaderboard text file with the player's name and their score.
 
     Parameters:
-        player_name (str): the name of the player
-        final_score (int): the player's final score
-        filename (str): name of the leaderboard file
+        --> player_name (str): the name of the player
+        --> final_score (int): the player's final score
+        --> filename (str): name of the leaderboard file
     """
     with open(filename, "a") as f:
         f.write(f"{player_name}: {final_score}\n")
@@ -56,30 +57,35 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         filename (str): name of the leaderboard file
     """
 
-    # Check for file presence
+    # Isata: I implemented conditional statements here to verfiy the filepath 
+    # and display information if the condition is met.
+    
+    # Checks if the file exists first
     if not os.path.exists(filename):
         print("No leaderboard records yet!")
         return
 
-    # Check if empty
+    # Checks to see if its empty
     if os.path.getsize(filename) == 0:
         print("Leaderboard is empty!")
         return
 
-    # Reads file and display current scores
+    # Isata: I utilized with statement to read the file and display current scores:
     with open(filename, "r") as f:
         scores = [line.strip() for line in f if line.strip()]
 
     # displays distint leaderboard header for better readability
     print("\n--- LEADERBOARD ---")
+
     # Show last 10 entries (or all if less than 10)
     for score in scores[-10:]:
         print(score)
     print("_____________________")
 
 
+# Testing the scoring system:
 if __name__ == "__main__":
-    # Test initialization of a starting player score:
+    # Test initialization
     score = initialize_score()
     print(f"Initial score: {score}")
 
@@ -87,10 +93,10 @@ if __name__ == "__main__":
     score = adjust_score(score, "hint")
     print(f"Score after hint: {score}")
 
-    # Test a bonus from 2 correct guesses
+    # Test bonus with 2 correct guesses
     score = adjust_score(score, "bonus", 2)
     print(f"Score after bonus: {score}")
 
-    # Test leaderboard functions:
+    # Test leaderboard functions
     update_leaderboard("TestPlayer", score)
     display_leaderboard()
