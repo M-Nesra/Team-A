@@ -1,2 +1,0 @@
-Hello, this is a test file.
-Each line is read separately
