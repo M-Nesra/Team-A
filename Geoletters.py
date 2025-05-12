@@ -403,7 +403,10 @@ def guess_checker(guess, state):
     return state
 
 def play_game():
-    
+    print("Welcome to Geoletters!")
+    print("Please enter your username")
+    username = input("\n Username: ")
+    print("Rules:")
 
 if __name__ == "__main__":
     play_game()
