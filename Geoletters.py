@@ -1,7 +1,55 @@
-# Scoring System:
-
 import os
+import random
+import re
 
+class GameState:
+    """
+    Represents the state of the guessing game for a single round.
+
+    Attributes:
+        country (str): The name of the country to be guessed.
+        guessed_letters (set): Set of correctly guessed letters.
+        wrong_guesses (int): Number of incorrect guesses.
+        score (int): Current player score.
+    """
+    def __init__(self, country, guessed_letters=None, wrong_guesses=0, score=100):
+        """
+        Initializes a GameState instance with the provided country and game state info.
+
+        Args:
+            country (str): The name of the country to guess.
+            guessed_letters (set): Letters guessed so far.
+            wrong_guesses (int): Count of incorrect guesses.
+            score (int): Starting score.
+        """
+        self.country = country
+        self.guessed_letters = guessed_letters or set()
+        self.wrong_guesses = wrong_guesses
+        self.score = score
+
+    def __contains__(self, letter):
+        """
+        Checks whether a letter is in the target country (case-insensitive).
+
+        Args:
+            letter (str): The letter to check.
+
+        Returns:
+            bool: True if letter is in the country name.
+        """
+        return letter in self.country.lower()
+
+    def __str__(self):
+        """
+        Returns the current state of the word with guessed letters revealed.
+
+        Returns:
+            str: Display string with correctly guessed letters shown.
+        """
+        return display_word_state(self.country, self.guessed_letters)
+
+
+# Scoring System:
 def initialize_score():
     """Initialize the player's score for the start of the Game @ 100"""
     return 100
@@ -83,26 +131,6 @@ def display_leaderboard(filename: str = "leader_board.txt"):
     print("_____________________")
 
 
-# Testing the scoring system:
-if __name__ == "__main__":
-    # Test initialization
-    score = initialize_score()
-    print(f"Initial score: {score}")
-
-    # Test hint deduction
-    score = adjust_score(score, "hint")
-    print(f"Score after hint: {score}")
-
-    # Test bonus with 2 correct guesses
-    score = adjust_score(score, "bonus", 2)
-    print(f"Score after bonus: {score}")
-
-    # Test leaderboard functions
-    update_leaderboard("TestPlayer", score)
-    display_leaderboard()
-
-import random
-
 def get_hint(country: str):
     """
     Prompts the user to choose a hint type, then returns either:
@@ -170,7 +198,6 @@ def word_structure(country: str) -> str:
         f"with lengths: {', '.join(str(length) for length in word_lengths)}."
     )
 
-import re
 def display_word_state(country: str, guessed_letters: str) :
     """
     Displays the current state of the guessed word with underscores for unguessed letters.
@@ -294,62 +321,6 @@ def pick_country(choice):
     save_used(selected)
     return selected
 
-if __name__ == "__main__":
-    print("Choose a category:")
-    print("1. Random Countries")
-    print("2. African Countries")
-    print("3. Countries with Red Flags")
-    print("4. 5-Letter Countries")
-
-    user_input = input("\nEnter the number of your choice: ")
-    selected = pick_country(user_input)
-    
-class GameState:
-    """
-    Represents the state of the guessing game for a single round.
-
-    Attributes:
-        country (str): The name of the country to be guessed.
-        guessed_letters (set): Set of correctly guessed letters.
-        wrong_guesses (int): Number of incorrect guesses.
-        score (int): Current player score.
-    """
-    def __init__(self, country, guessed_letters=None, wrong_guesses=0, score=100):
-        """
-        Initializes a GameState instance with the provided country and game state info.
-
-        Args:
-            country (str): The name of the country to guess.
-            guessed_letters (set): Letters guessed so far.
-            wrong_guesses (int): Count of incorrect guesses.
-            score (int): Starting score.
-        """
-        self.country = country
-        self.guessed_letters = guessed_letters or set()
-        self.wrong_guesses = wrong_guesses
-        self.score = score
-
-    def __contains__(self, letter):
-        """
-        Checks whether a letter is in the target country (case-insensitive).
-
-        Args:
-            letter (str): The letter to check.
-
-        Returns:
-            bool: True if letter is in the country name.
-        """
-        return letter in self.country.lower()
-
-    def __str__(self):
-        """
-        Returns the current state of the word with guessed letters revealed.
-
-        Returns:
-            str: Display string with correctly guessed letters shown.
-        """
-        return display_word_state(self.country, self.guessed_letters)
-
 
 def validate_guess(guess, guessed_letters):
     """
@@ -431,3 +402,12 @@ def guess_checker(guess, state):
             break
 
     return state
+
+def play_game():
+    print("Welcome to Geoletters!")
+    print("Please enter your username")
+    username = input("\n Username: ")
+    print("Rules:")
+
+if __name__ == "__main__":
+    play_game()
