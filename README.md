@@ -49,4 +49,8 @@ As we built this, we practiced:
 
 
 # Annotated Bibliography:
+
+1. https://wallethub.com/edu/cities-with-the-most-and-least-ethno-racial-and-linguistic-diversity/10264
+
+This documentation provided credible sources for our elevator pitch. Within the pitch, we were able to describe that Maryland holds four of the most ethnicaly diverse cities in the United States of America. As stated, Germantown was ranked number one as the most ethincally diverse city in the U.S. Next, Gaithesburg was ranked number three as the most ethicnally diverse city in the U.S. Following that, Silver Spring was ranked number four as the the most ethicnally diverse city in the U.S. Finally, Rockville was ranked number nine as the most ethicnally diverse city in the U.S.
     
