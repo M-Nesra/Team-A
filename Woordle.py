@@ -1,6 +1,6 @@
-# Scoring System:
-
 import os
+import random
+import re
 
 def initialize_score():
     """Initialize the player's score for the start of the Game @ 100"""
@@ -82,25 +82,6 @@ def display_leaderboard(filename: str = "leader_board.txt"):
         print(score)
     print("_____________________")
 
-
-# Testing the scoring system:
-if __name__ == "__main__":
-    # Test initialization
-    score = initialize_score()
-    print(f"Initial score: {score}")
-
-    # Test hint deduction
-    score = adjust_score(score, "hint")
-    print(f"Score after hint: {score}")
-
-    # Test bonus with 2 correct guesses
-    score = adjust_score(score, "bonus", 2)
-    print(f"Score after bonus: {score}")
-
-    # Test leaderboard functions
-    update_leaderboard("TestPlayer", score)
-    display_leaderboard()
-
 import random
 
 def get_hint(country: str):
@@ -170,7 +151,6 @@ def word_structure(country: str) -> str:
         f"with lengths: {', '.join(str(length) for length in word_lengths)}."
     )
 
-import re
 def display_word_state(country: str, guessed_letters: str) :
     """
     Displays the current state of the guessed word with underscores for unguessed letters.
@@ -294,16 +274,6 @@ def pick_country(choice):
     save_used(selected)
     return selected
 
-if __name__ == "__main__":
-    print("Choose a category:")
-    print("1. Random Countries")
-    print("2. African Countries")
-    print("3. Countries with Red Flags")
-    print("4. 5-Letter Countries")
-
-    user_input = input("\nEnter the number of your choice: ")
-    selected = pick_country(user_input)
-    
 class GameState:
     """
     Represents the state of the guessing game for a single round.
@@ -431,3 +401,9 @@ def guess_checker(guess, state):
             break
 
     return state
+
+def play_game():
+    
+
+if __name__ == "__main__":
+    play_game()
