@@ -7,19 +7,19 @@ def initialize_score():
 
 def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
     """This function updates the player's score based on their action.
-        
+
         Parameters:
             --> score (int): the current score of the player.
             --> type_guess (str): the type of action - "hint", "wrong_guess",
             or "bonus")
-            --> correct_geusses (int) : the amount of correct guesses made, used 
+            --> correct_geusses (int) : the amount of correct guesses made, used
             for bonus
 
         Returns:
-            int: This is the updated score of the player (dependencies, values 
+            int: This is the updated score of the player (dependencies, values
             provided in parameters)
     """
-    
+
     # Dictionary for mapping referenced string values score changes
     score_changes = {
         "hint": -15,
@@ -30,16 +30,16 @@ def adjust_score(score: int, type_guess: str, correct_guesses: int = 0):
     # Condtions that ensure game attempt boundaries:
     if type_guess not in score_changes:
         raise ValueError(f"Action {type_guess} is not viable in this game.")
-    
+
     score += score_changes[type_guess]
-    
+
     # Returns score, ensures it does not decrease below 0.
     return max(score, 0)
-   
-    
+
+
 def update_leaderboard(player_name: str, final_score: int, filename: str = "leader_board.txt"):
     """Updates the leaderboard text file with the player's name and their score.
-    
+
     Parameters:
         player_name (str): the name of the player
         final_score (int): the player's final score
@@ -47,39 +47,39 @@ def update_leaderboard(player_name: str, final_score: int, filename: str = "lead
     """
     with open(filename, "a") as f:
         f.write(f"{player_name}: {final_score}\n")
-    
+
 
 def display_leaderboard(filename: str = "leader_board.txt"):
     """ Displays the current leaderboard from the text file designated.
-    
+
     Parameters:
         filename (str): name of the leaderboard file
     """
-    
+
     # Check for file presence
     if not os.path.exists(filename):
         print("No leaderboard records yet!")
         return
-    
+
     # Check if empty
     if os.path.getsize(filename) == 0:
         print("Leaderboard is empty!")
         return
-    
+
     # Reads file and display current scores
     with open(filename, "r") as f:
         scores = [line.strip() for line in f if line.strip()]
-        
+
     # displays distint leaderboard header for better readability
     print("\n--- LEADERBOARD ---")
     # Show last 10 entries (or all if less than 10)
-    for score in scores[-10:]:  
+    for score in scores[-10:]:
         print(score)
     print("_____________________")
 
 
 if __name__ == "__main__":
-    # Test initialization
+    # Test initialization of a starting player score:
     score = initialize_score()
     print(f"Initial score: {score}")
 
@@ -87,10 +87,10 @@ if __name__ == "__main__":
     score = adjust_score(score, "hint")
     print(f"Score after hint: {score}")
 
-    # Test bonus with 2 correct guesses
+    # Test a bonus from 2 correct guesses
     score = adjust_score(score, "bonus", 2)
     print(f"Score after bonus: {score}")
 
-    # Test leaderboard functions
+    # Test leaderboard functions:
     update_leaderboard("TestPlayer", score)
     display_leaderboard()
