@@ -92,6 +92,7 @@ This documentation provided as a credible source for our elevator pitch. Within 
 Description: 
 Implemented with statements to properly open and write to a text file for the leaderboard display at the end of the game, ensuring the player’s name and score (never dropping below zero) were saved efficiently using the fourth function.
 Also used conditionals to implement rules and boundaries in the game, adjusting the score based on user inputs by referencing dictionary keys mapped to score-altering values.
+
 --------------------------------------------------------------------------------
 
 | Method/function     | Primary Author | Techniques Demonstrated             |
@@ -100,11 +101,12 @@ Also used conditionals to implement rules and boundaries in the game, adjusting 
 | 2. letter_freq()    |                | 2. Key Function                     |
 | 3. word_structure() |                |                                     |
 
-
 Description: 
 Implemented 3 hint related funcitons to assist the user in completing the game. 
 F-strings were used to format and present hint informaton based on the country name.
 Used a key function with max() to identify the most frequently used letter within a country name.
+
+
 --------------------------------------------------------------------------------
 
 |---------------------------|------------------------|-------------------------| 
