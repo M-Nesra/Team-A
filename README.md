@@ -79,10 +79,48 @@
 This documentation provided as a credible source for our elevator pitch. Within the pitch, we were able to describe that Maryland holds four of the most ethnicaly diverse cities in the United States of America. As stated, Germantown was ranked number one as the most ethincally diverse city in the U.S. Next, Gaithesburg was ranked number three as the most ethicnally diverse city in the U.S. Following that, Silver Spring was ranked number four as the the most ethicnally diverse city in the U.S. Finally, Rockville was ranked number nine as the most ethicnally diverse city in the U.S.
 
 
-# Attribution
+# Attribution Table:
 
+|---------------------------|------------------------|-------------------------| 
+| Method/function           | Primary Author         | Techniques Demonstrated |
+|---------------------------|------------------------|-------------------------| 
+| 1. initialize_score(),    | Isata Jalloh           | 1. With statments       |
+| 2. adjust_score(),        |                        | 2. Conditionals         |
+| 3. update_leaderboard(),  |                        |                         |
+| 4. display_leaderboard(). |                        |                         |
 
-Method/function	Primary author 	Techniques demonstrated
-Tunnel.find_connections	Avery Student	sequence unpacking
-parse_args	Frankie Learner	ArgumentParser class
+Description: 
+Implemented with statements to properly open and write to a text file for the leaderboard display at the end of the game, ensuring the player’s name and score (never dropping below zero) were saved efficiently using the fourth function.
+Also used conditionals to implement rules and boundaries in the game, adjusting the score based on user inputs by referencing dictionary keys mapped to score-altering values.
+--------------------------------------------------------------------------------
 
+|---------------------------|------------------------|-------------------------| 
+| Method/function           | Primary Author         | Techniques Demonstrated |
+|---------------------------|------------------------|-------------------------| 
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+
+Description: 
+--------------------------------------------------------------------------------
+
+|---------------------------|------------------------|-------------------------| 
+| Method/function           | Primary Author         | Techniques Demonstrated |
+|---------------------------|------------------------|-------------------------| 
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+
+Description: 
+--------------------------------------------------------------------------------
+|---------------------------|------------------------|-------------------------| 
+| Method/function           | Primary Author         | Techniques Demonstrated |
+|---------------------------|------------------------|-------------------------| 
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+|                           |                        |                         |
+
+Description: 
