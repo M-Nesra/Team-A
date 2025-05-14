@@ -78,6 +78,18 @@
 
 This documentation provided as a credible source for our elevator pitch. Within the pitch, we were able to describe that Maryland holds four of the most ethnicaly diverse cities in the United States of America. As stated, Germantown was ranked number one as the most ethincally diverse city in the U.S. Next, Gaithesburg was ranked number three as the most ethicnally diverse city in the U.S. Following that, Silver Spring was ranked number four as the the most ethicnally diverse city in the U.S. Finally, Rockville was ranked number nine as the most ethicnally diverse city in the U.S.
 
+# Explanation of Each File:
+
+hint.py - Hint system related functions done by Steven Zheng
+scoring.py - Scoring system related functions done by Isata Jalloh
+player_guess.py - Guess system related functions done by Hans
+pick_country_final.py - Category and country selection related functions done by Nesra
+display_word_state.py - Interface and game state related functions done by Joshua Okeke
+Geoletters.py - Combined functions plus main play game function done by Steven Zheng
+africa.txt, five_letter.txt, random.txt, red_flag.txt, and used.txt are all txt files storing country names.
+leader_board.txt - used to store leaderboard of players
+
+
 
 # Attribution Table:
 
