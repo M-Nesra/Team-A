@@ -1,6 +1,6 @@
 # Team-A
 
-### "Geoletter: A Geography Word Challenge"
+# "Geoletter: A Geography Word Challenge"
     
     Test your knowledge of world countries in this interactive Python guessing game!
 
