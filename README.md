@@ -110,10 +110,14 @@ Used a key function with max() to identify the most frequently used letter withi
 |---------------------------|------------------------|-------------------------| 
 | Method/function           | Primary Author         | Techniques Demonstrated |
 |---------------------------|------------------------|-------------------------| 
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
+| 1. def __contains__()     |       Hans Banag       | 1. Magic Methods        |
+| 2. def __str__()          |                        | 2. Optional Parameters  |
+| 3. def validate_guess()   |                        |                         |
+| 4. def evaluate_guess()   |                        |                         |
+| 5. def guess_checker()    |                        |                         |
+
+Description: 
+The use of magic methods made the came code easier to understand and use: easy to checking if a letter is in the country or print ng the game state clearly. Additionally, using oprional parameters allowed the game to set default values autamically, making it easeir to create and manage game states.
 
 Description: 
 --------------------------------------------------------------------------------
@@ -125,4 +129,5 @@ Description:
 |                           |                        |                         |
 |                           |                        |                         |
 
-Description: The  display_word_state function shows the current state of the word (a country name) as it would appear in a word-guessing game. It reveals correctly guessed letters and hides unguessed letters with underscores. The valid_country_format checks if the user's input is a valid country name makes sure it only includes letters and spaces, with no numbers or special characters.
+Description: 
+The  display_word_state function shows the current state of the word (a country name) as it would appear in a word-guessing game. It reveals correctly guessed letters and hides unguessed letters with underscores. The valid_country_format checks if the user's input is a valid country name makes sure it only includes letters and spaces, with no numbers or special characters.
