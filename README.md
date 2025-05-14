@@ -104,28 +104,34 @@ leader_board.txt - used to store leaderboard of players
 Description: 
 Implemented with statements to properly open and write to a text file for the leaderboard display at the end of the game, ensuring the player’s name and score (never dropping below zero) were saved efficiently using the fourth function.
 Also used conditionals to implement rules and boundaries in the game, adjusting the score based on user inputs by referencing dictionary keys mapped to score-altering values.
+
 --------------------------------------------------------------------------------
 
 | Method/function     | Primary Author | Techniques Demonstrated             |
 |---------------------|----------------|-------------------------------------|
 | 1. get_hint()       | Steven Zheng   | 1. f-strings                        |
-| 2. letter_freq()    |                | 2. key function                     |
+| 2. letter_freq()    |                | 2. Key Function                     |
 | 3. word_structure() |                |                                     |
-
 
 Description: 
 Implemented 3 hint related funcitons to assist the user in completing the game. 
 F-strings were used to format and present hint informaton based on the country name.
 Used a key function with max() to identify the most frequently used letter within a country name.
+
+
 --------------------------------------------------------------------------------
 
 |---------------------------|------------------------|-------------------------| 
 | Method/function           | Primary Author         | Techniques Demonstrated |
 |---------------------------|------------------------|-------------------------| 
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
+| 1. __contains__()     |       Hans Banag           | 1. Magic Methods        |
+| 2. __str__()          |                            | 2. Optional Parameters  |
+| 3. validate_guess()   |                            |                         |
+| 4. evaluate_guess()   |                            |                         |
+| 5. guess_checker()    |                            |                         |
+
+Description: 
+The use of magic methods made the came code easier to understand and use: easy to checking if a letter is in the country or print ng the game state clearly. Additionally, using optional parameters allowed the game to set default values autamically, making it easeir to create and manage game states.
 
 Description: 
 --------------------------------------------------------------------------------
@@ -137,4 +143,5 @@ Description:
 |                           |                        |                         |
 |                           |                        |                         |
 
-Description: The  display_word_state function shows the current state of the word (a country name) as it would appear in a word-guessing game. It reveals correctly guessed letters and hides unguessed letters with underscores. The valid_country_format checks if the user's input is a valid country name makes sure it only includes letters and spaces, with no numbers or special characters.
+Description: 
+The  display_word_state function shows the current state of the word (a country name) as it would appear in a word-guessing game. It reveals correctly guessed letters and hides unguessed letters with underscores. The valid_country_format checks if the user's input is a valid country name makes sure it only includes letters and spaces, with no numbers or special characters.
