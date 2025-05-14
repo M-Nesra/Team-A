@@ -110,14 +110,14 @@ Used a key function with max() to identify the most frequently used letter withi
 |---------------------------|------------------------|-------------------------| 
 | Method/function           | Primary Author         | Techniques Demonstrated |
 |---------------------------|------------------------|-------------------------| 
-| 1. def __contains__()     |       Hans Banag       | 1. Magic Methods        |
-| 2. def __str__()          |                        | 2. Optional Parameters  |
-| 3. def validate_guess()   |                        |                         |
-| 4. def evaluate_guess()   |                        |                         |
-| 5. def guess_checker()    |                        |                         |
+| 1. __contains__()     |       Hans Banag           | 1. Magic Methods        |
+| 2. __str__()          |                            | 2. Optional Parameters  |
+| 3. validate_guess()   |                            |                         |
+| 4. evaluate_guess()   |                            |                         |
+| 5. guess_checker()    |                            |                         |
 
 Description: 
-The use of magic methods made the came code easier to understand and use: easy to checking if a letter is in the country or print ng the game state clearly. Additionally, using oprional parameters allowed the game to set default values autamically, making it easeir to create and manage game states.
+The use of magic methods made the came code easier to understand and use: easy to checking if a letter is in the country or print ng the game state clearly. Additionally, using optional parameters allowed the game to set default values autamically, making it easeir to create and manage game states.
 
 Description: 
 --------------------------------------------------------------------------------
