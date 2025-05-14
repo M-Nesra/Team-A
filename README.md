@@ -1,8 +1,8 @@
 # Team-A
 
-# "Geoletter: A Geography Word Challenge"
+# Geoletter: A Geography Word Challenge
     
-    Test your knowledge of world countries in this interactive Python guessing game!
+    Test your knowledge of world countries in this interactive Python guessing game! Geoletters is a       country-themed  word guessing game. You try to guess the letters of a hidden country name before       running out of points or guesses
 
 ### How to Play:
     1. Pick a category (African nations, countries with red flags, etc.)
@@ -38,6 +38,31 @@
 
     --> Clean Python architecture
     --> User input validation
+
+# Interpretation of The Program
+
+### Game Rules
+
+    1. You start with 100 points.
+    2. You can ake up to 6 wrong guesses. each wrong letter costs 10 points
+    3. You can use a hint at any time by typing 'hint' for 15 points:
+        a. First letter
+        b. Last letter
+        c. Random middle letter
+        d. Most repetitive leter in the name
+        e. word count and word lengths
+    4. The game ends when:
+        a. You guess all letters in the country
+        b. You run out of points
+        c. You reach 6 wrong guesses
+
+### Program Ending & Extra Notes
+
+    1. It shows a congratualaitons message if you won, or a game over message with the correct country         name
+    2. Input is case-insensitive, but with only sinlge alphabetic characters (ex. A, a, B, b)
+    3. If all countries in a category have been sued, the list resets
+    4. Countries with characters shorter than 5 or longer than 10 will not be displayed
+    
 
 # Troubleshooting: 
 
