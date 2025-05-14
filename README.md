@@ -97,7 +97,7 @@ Also used conditionals to implement rules and boundaries in the game, adjusting 
 | Method/function     | Primary Author | Techniques Demonstrated             |
 |---------------------|----------------|-------------------------------------|
 | 1. get_hint()       | Steven Zheng   | 1. f-strings                        |
-| 2. letter_freq()    |                | 2. key function                     |
+| 2. letter_freq()    |                | 2. Key Function                     |
 | 3. word_structure() |                |                                     |
 
 
