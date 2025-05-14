@@ -1,4 +1,5 @@
 import re
+
 def display_word_state(country: str, guessed_letters: str) :
     """
     Displays the current state of the guessed word with underscores for unguessed letters.
