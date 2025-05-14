@@ -2,7 +2,7 @@
 
 # Geoletter: A Geography Word Challenge
     
-    Test your knowledge of world countries in this interactive Python guessing game! Geoletters is a       country-themed  word guessing game. You try to guess the letters of a hidden country name before       running out of points or guesses
+    Test your knowledge of world countries in this interactive Python guessing game! Geoletters is a country-themed  word guessing game. You try to guess the letters of a hidden country name before running out of points or guesses
 
 ### How to Play:
     1. Pick a category (African nations, countries with red flags, etc.)
