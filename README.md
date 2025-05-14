@@ -58,7 +58,7 @@
 
 ### Program Ending & Extra Notes
 
-    1. It shows a congratualaitons message if you won, or a game over message with the correct country         name
+    1. It shows a congratualaitons message if you won, or a game over message with the correct country name
     2. Input is case-insensitive, but with only sinlge alphabetic characters (ex. A, a, B, b)
     3. If all countries in a category have been sued, the list resets
     4. Countries with characters shorter than 5 or longer than 10 will not be displayed
