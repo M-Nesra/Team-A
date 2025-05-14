@@ -84,11 +84,11 @@ def display_leaderboard(filename: str = "leader_board.txt"):
 
 import random
 
-def get_hint(country: str):
+def get_hint(country):
     """
     Steven Zheng
     
-    Techniques:
+    Technique Used:
         f-strings
         
     Prompts the user to choose a hint type, then returns either:
@@ -96,7 +96,7 @@ def get_hint(country: str):
         Last letter
         A random letter in the middle (not first or last)
 
-    Parameters:
+    Args:
         country (str): The country name
 
     Returns:
@@ -128,14 +128,21 @@ def get_hint(country: str):
     else:
         return "Invalid choice. No hint used, but the point deduction still applies."
 
-def letter_freq(country: str) -> str:
+def letter_freq(country):
     """
     Steven Zheng
     
-    Techniques:
+    Technique Used:
         f-string
         key function
+        
     Returns the most frequently used letter in the country name.
+    
+    Args:
+        country (str): The name of the country.
+        
+    Returns:
+        str: The most frequently appearing letter in the country name.
     """
     freq = {}
     for char in country.lower():
@@ -149,11 +156,21 @@ def letter_freq(country: str) -> str:
 
     return f"Hint: The most frequently used letter is '{most_common_letter.upper()}'."
 
-def word_structure(country: str) -> str:
+def word_structure(country):
     """
     Steven Zheng
     
+    Technique Used:
+        F-strings
+    
     Returns the number of words in the country name and the length of each word.
+    
+    Args:
+        country (str): The name of the country.
+        
+    Returns:
+        str: The number of words in the country name and the
+        number of letters per word. 
     """
     words = country.strip().split()
     word_lengths = [len(word) for word in words]
@@ -440,7 +457,7 @@ def play_game():
     state = GameState(selected_country)
     print("\n Game START!")
     
-    while state.wrong_guesses < 6 and state.score > 0:
+    while (state.wrong_guesses < 6 and state.score > 0):
         current_display = display_word_state(state.country, state.guessed_letters)
 
         if "_" not in current_display:
@@ -452,7 +469,7 @@ def play_game():
         if guess == "hint":
             print(get_hint(state.country))
             state.score = adjust_score(state.score, "hint")
-            print(f"Hiint used. Current Score: {state.score}")
+            print(f"Hint used. Current Score: {state.score}")
             continue
 
         state = guess_checker(guess, state)
