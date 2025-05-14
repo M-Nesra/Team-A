@@ -21,9 +21,9 @@ Quick Start:
     python Geoletters.py
 
 What Makes This Game Unique:
-    --> Adaptive scoring system that rewards strategic play
-    --> Multiple difficulty levels through category selection
-    --> Persistent leaderboard to track top players
+### 1. Adaptive scoring system that rewards strategic play
+### 2. Multiple difficulty levels through category selection
+### 3. Persistent leaderboard to track top players
 
 For Other Developers:
     The game uses these key components:
