@@ -84,7 +84,7 @@ def display_leaderboard(filename: str = "leader_board.txt"):
 
 import random
 
-def get_hint(country: str):
+def get_hint(country):
     """
     Steven Zheng
     
@@ -96,7 +96,7 @@ def get_hint(country: str):
         Last letter
         A random letter in the middle (not first or last)
 
-    Parameters:
+    Args:
         country (str): The country name
 
     Returns:
@@ -128,7 +128,7 @@ def get_hint(country: str):
     else:
         return "Invalid choice. No hint used, but the point deduction still applies."
 
-def letter_freq(country: str) -> str:
+def letter_freq(country):
     """
     Steven Zheng
     
@@ -149,11 +149,21 @@ def letter_freq(country: str) -> str:
 
     return f"Hint: The most frequently used letter is '{most_common_letter.upper()}'."
 
-def word_structure(country: str) -> str:
+def word_structure(country):
     """
     Steven Zheng
     
     Returns the number of words in the country name and the length of each word.
+
+    Technique Used:
+        F-strings
+    
+    Args:
+        country (str): The name of the country.
+        
+    Returns:
+        str: The number of words in the country name and the
+        number of letters per word. 
     """
     words = country.strip().split()
     word_lengths = [len(word) for word in words]
@@ -440,7 +450,7 @@ def play_game():
     state = GameState(selected_country)
     print("\n Game START!")
     
-    while state.wrong_guesses < 6 and state.score > 0:
+    while (state.wrong_guesses < 6 and state.score > 0):
         current_display = display_word_state(state.country, state.guessed_letters)
 
         if "_" not in current_display:
