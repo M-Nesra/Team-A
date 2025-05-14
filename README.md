@@ -120,9 +120,9 @@ Description:
 |---------------------------|------------------------|-------------------------| 
 | Method/function           | Primary Author         | Techniques Demonstrated |
 |---------------------------|------------------------|-------------------------| 
-|                           |                        |                         |
-|                           |                        |                         |
+| display_word_state        | Joshua Okeke           |  Sets                   |
+| valid_country_format      | Joshua Okeke           |  Regular Expressions    |
 |                           |                        |                         |
 |                           |                        |                         |
 
-Description: 
+Description: The  display_word_state function shows the current state of the word (a country name) as it would appear in a word-guessing game. It reveals correctly guessed letters and hides unguessed letters with underscores. The valid_country_format checks if the user's input is a valid country name makes sure it only includes letters and spaces, with no numbers or special characters.
