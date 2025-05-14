@@ -94,15 +94,17 @@ Implemented with statements to properly open and write to a text file for the le
 Also used conditionals to implement rules and boundaries in the game, adjusting the score based on user inputs by referencing dictionary keys mapped to score-altering values.
 --------------------------------------------------------------------------------
 
-|---------------------------|------------------------|-------------------------| 
-| Method/function           | Primary Author         | Techniques Demonstrated |
-|---------------------------|------------------------|-------------------------| 
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
-|                           |                        |                         |
+| Method/function     | Primary Author | Techniques Demonstrated             |
+|---------------------|----------------|-------------------------------------|
+| 1. get_hint()       | Steven Zheng   | 1. f-strings                        |
+| 2. letter_freq()    |                | 2. key function                     |
+| 3. word_structure() |                |                                     |
+
 
 Description: 
+Implemented 3 hint related funcitons to assist the user in completing the game. 
+F-strings were used to format and present hint informaton based on the country name.
+Used a key function with max() to identify the most frequently used letter within a country name.
 --------------------------------------------------------------------------------
 
 |---------------------------|------------------------|-------------------------| 
