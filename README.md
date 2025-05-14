@@ -85,7 +85,7 @@ scoring.py - Scoring system related functions done by Isata Jalloh
 player_guess.py - Guess system related functions done by Hans Banag
 pick_country_final.py - Category and country selection related functions done by Nesra
 display_word_state.py - Interface and game state related functions done by Joshua Okeke
-Geoletters.py - Combined functions plus main play game function done by Steven Zheng
+Geoletters.py - Combined functions plus main play game function done
 africa.txt, five_letter.txt, random.txt, red_flag.txt, and used.txt are all txt files storing country names.
 leader_board.txt - used to store leaderboard of players
 
