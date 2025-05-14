@@ -88,7 +88,7 @@ def get_hint(country):
     """
     Steven Zheng
     
-    Techniques:
+    Technique Used:
         f-strings
         
     Prompts the user to choose a hint type, then returns either:
@@ -132,10 +132,17 @@ def letter_freq(country):
     """
     Steven Zheng
     
-    Techniques:
+    Technique Used:
         f-string
         key function
+        
     Returns the most frequently used letter in the country name.
+    
+    Args:
+        country (str): The name of the country.
+        
+    Returns:
+        str: The most frequently appearing letter in the country name.
     """
     freq = {}
     for char in country.lower():
@@ -153,10 +160,10 @@ def word_structure(country):
     """
     Steven Zheng
     
-    Returns the number of words in the country name and the length of each word.
-
     Technique Used:
         F-strings
+    
+    Returns the number of words in the country name and the length of each word.
     
     Args:
         country (str): The name of the country.
@@ -462,7 +469,7 @@ def play_game():
         if guess == "hint":
             print(get_hint(state.country))
             state.score = adjust_score(state.score, "hint")
-            print(f"Hiint used. Current Score: {state.score}")
+            print(f"Hint used. Current Score: {state.score}")
             continue
 
         state = guess_checker(guess, state)
